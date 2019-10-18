@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   page: string = "recipes";
 
-  onPageChange(data: { newPage: string }) {
-    this.page = data.newPage;
+  onNavigate(newPage: string) {
+    this.page = newPage;
   }
 }

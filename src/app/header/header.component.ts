@@ -7,7 +7,7 @@ import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   collapsed:boolean = true;
-  @Output("changePage") changePage = new EventEmitter<{newPage: string}>();
+  @Output("changePage") changePage = new EventEmitter<string>();
   constructor() { }
 
   ngOnInit() {
@@ -15,6 +15,6 @@ export class HeaderComponent implements OnInit {
 
   setPage(newPage: string) {
     console.log('setting page to : ' + newPage);
-    this.changePage.emit({ newPage });
+    this.changePage.emit(newPage);
   }
 }
