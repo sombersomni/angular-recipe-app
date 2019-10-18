@@ -5,21 +5,11 @@
 </div>
 <div class="row">
     <div class="col-xs-12">
-        <a 
+        <app-recipe-item 
             *ngFor="let recipe of recipes"
-            href="#" 
-            class="list-group-item clearfix recipe-item">
-            <div class="pull-left">
-                <h4 class="list-group-item-heading">{{recipe.name}}</h4>
-                <p class="list-group-item-text">{{recipe.desc}}</p>
-            </div>
-            <span class="pull-right">
-                <img 
-                    [src]="recipe.img"
-                    [alt]="recipe.name" class="img-responsive">
-            </span>
-        </a>
-
-        <app-recipe-item></app-recipe-item>
+            [recipe]="recipe"
+            (click)="selectRecipe(recipe)"
+            >
+        </app-recipe-item>
     </div>
 </div>
