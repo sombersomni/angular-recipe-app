@@ -29,10 +29,15 @@ export class RecipeService {
           ];
     }
 
-    getRecipes() {
+    getRecipes(): Recipe[]{
         return this.recipes.slice();
     }
 
+    getRecipe(id: number) {
+      console.log('getting recipe');
+      return this.recipes[id];
+    }
+    
     addIngredientsToShoppingList(ingredients: Ingredient[]) {
       this.shoppingService.setRecipeIngredients(ingredients)
     }

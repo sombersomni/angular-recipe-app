@@ -7,17 +7,16 @@ import { ShoppingListService } from '../shopping-list/shopping-list.service';
     selector: 'app-recipes',
     templateUrl: 'recipes.component.html',
     styleUrls: ['recipes.component.css'],
-    providers: [RecipeService]
 })
 
 export class RecipeComponent implements OnInit {
-    currentRecipe: Recipe;
+    // currentRecipe: Recipe;
 
     constructor(private recipeService: RecipeService) {}
 
     ngOnInit() {
-        this.recipeService.onSelectRecipe.subscribe((recipe: Recipe) => {
-            this.currentRecipe = recipe;
-        })
+        // this.recipeService.onSelectRecipe.subscribe((recipe: Recipe) => {
+        //     this.currentRecipe = recipe;
+        // })
     }
 }

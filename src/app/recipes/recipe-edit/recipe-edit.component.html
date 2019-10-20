@@ -1,0 +1,23 @@
+<div class="col-md-10">
+    <form >
+        <div class="form-group">
+            <label for="recipe-name">Recipe Name</label>
+            <input 
+            id="recipe-name"
+            name="recipe-name" 
+            type="text" 
+            placeholder="Enter a recipe name" 
+            class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="recipe-desc">Recipe Description</label>
+            <input 
+            name="recipe-desc" 
+            id="recipe-desc"
+            type="text" 
+            placeholder="Enter a recipe name" 
+            class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">{{isCreate ? 'Submit' : 'Update Recipe'}}</button>
+    </form>
+</div>
