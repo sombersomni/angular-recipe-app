@@ -13,13 +13,14 @@ export class RecipeListComponent implements OnInit {
   recipes: Recipe[];
 
   constructor(private recipeService: RecipeService,
-    private router: Router, private route: ActivatedRoute) { }
+    private router: Router, 
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.recipes = this.recipeService.getRecipes();
   }
 
   onCreateRecipe() {
-    this.router.navigate(["/recipes", "create"])
+    this.router.navigate(["create"], {relativeTo: this.route});
   }
 }
