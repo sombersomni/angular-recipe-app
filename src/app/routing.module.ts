@@ -5,13 +5,14 @@ import { NgModule } from '@angular/core';
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { RecipeResolver } from './recipes/recipe-resolver.service';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import { RecipeStarterComponent } from './recipes/recipe-starter/recipe-starter.component';
 
 const appRoutes: Routes = [
     { path: "", redirectTo: "/recipes", pathMatch: "full" },
     {
         path: "recipes", component: RecipeComponent, children: [
             { path: "create", component: RecipeEditComponent},
-            { path: "", component: RecipeEditComponent},
+            { path: "", component: RecipeStarterComponent},
             { path: ":id", component: RecipeDetailComponent, resolve: { recipe: RecipeResolver } },
             { path: ":id/edit", component: RecipeEditComponent}
         ]

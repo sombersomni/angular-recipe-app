@@ -1,0 +1,13 @@
+
+.ingredient {
+    margin: 10px 0px;
+}
+
+input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched {
+    border: 2px solid red;
+}
+
+.btn-margin {
+    margin-bottom: 10px;
+    margin-right: 5px;
+}
