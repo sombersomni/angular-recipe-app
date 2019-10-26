@@ -6,7 +6,7 @@ import { Subject } from 'rxjs';
 @Injectable()
 export class RecipeService {
     //onSelectRecipe = new EventEmitter<Recipe>();
-    onRecipeChanges = new Subject<Recipe[]>();
+    private onRecipeChanges = new Subject<Recipe[]>();
     private recipes: Recipe[];
     constructor(private shoppingService: ShoppingListService) {
         this.recipes = [
@@ -29,6 +29,10 @@ export class RecipeService {
               ]
             )
           ];
+    }
+
+    observeRecipes() {
+      return this.onRecipeChanges.asObservable();
     }
 
     getRecipes(): Recipe[]{
@@ -54,6 +58,11 @@ export class RecipeService {
       this.onRecipeChanges.next(this.recipes.slice());
     }
     
+    setRecipes(recipes: Recipe[]) {
+      this.recipes = recipes;
+      this.onRecipeChanges.next(this.recipes.slice())
+    }
+
     deleteRecipe(index: number) {
       this.recipes.splice(index, 1);
       this.onRecipeChanges.next(this.recipes.slice());

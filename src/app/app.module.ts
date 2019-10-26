@@ -18,9 +18,12 @@ import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { RecipeStarterComponent } from './recipes/recipe-starter/recipe-starter.component';
 import { RecipeService } from './recipes/recipe.service';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
+    AuthComponent,
     AppComponent,
     ShoppingListComponent,
     HeaderComponent,
@@ -37,10 +40,11 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     HttpModule,
     AppRoutingModule
   ],
   providers: [ShoppingListService, RecipeService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent,]
 })
 export class AppModule { }
