@@ -8,7 +8,7 @@ export class AuthService {
 
     signUp(body: {email: string, password: string}) {
         const url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithCustomToken?key=`;
-        this.auth.post<any>(url, {...body, returnSecureToke: true })
+        this.http.post<any>(url, {...body, returnSecureToke: true })
     }
     
     login(body: {email: string, password: string}) {
