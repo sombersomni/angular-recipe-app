@@ -21,11 +21,13 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthComponent } from './auth/auth.component';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AuthComponent,
     AppComponent,
+    HomeComponent,
     ShoppingListComponent,
     HeaderComponent,
     RecipeComponent,
