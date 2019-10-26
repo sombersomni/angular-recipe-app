@@ -9,26 +9,7 @@ export class RecipeService {
     private onRecipeChanges = new Subject<Recipe[]>();
     private recipes: Recipe[];
     constructor(private shoppingService: ShoppingListService) {
-        this.recipes = [
-            new Recipe(
-              'Chicken Alfredo',
-              'A delicious, saucy alfredo on pasta and chicken',
-              'https://www.jessicagavin.com/wp-content/uploads/2019/08/chicken-alfredo-8-1200.jpg', 
-              [
-                new Ingredient('Chicken', 1),
-                new Ingredient('Pasta', 1)
-              ]
-            ),
-            new Recipe(
-              'Mushroom Burger',
-              'A testy vegan burger for the health conscious',
-              'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.wholesomelicious.com%2Fwp-content%2Fuploads%2F2015%2F06%2FGrilled-Portabello-Mushroom-Burgers.jpg', 
-              [
-                new Ingredient('Portobello Mushroom', 1),
-                new Ingredient('Avacodo', 1)
-              ]
-            )
-          ];
+        this.recipes = [];
     }
 
     observeRecipes() {

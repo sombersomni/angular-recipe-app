@@ -25,14 +25,30 @@
                     minlength="6"/>
             </div>
             <div class="row">
-                <button 
-                    class="btn btn-success" 
-                    type="submit"
-                    [disabled]="!authForm.valid">{{ isLoginMode ? "Login" : "Signup" }}</button>
-                <button 
-                    class="btn btn-primary" 
-                    type="button" 
-                    (click)="onSwitchMode()">Switch to {{ isLoginMode ? "Signup" : "Login" }}</button>
+                <div class="col-xs-12">
+                    <div *ngIf="errorMessage && errorMessage.length > 0" class="alert alert-danger">
+                        {{ errorMessage }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div 
+                    *ngIf="isLoading"
+                    class="col-xs-4">
+                    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                </div>
+                <div 
+                    *ngIf="!isLoading"
+                    class="col-xs-6">
+                    <button 
+                        class="btn btn-success" 
+                        type="submit"
+                        [disabled]="!authForm.valid">{{ isLoginMode ? "Login" : "Signup" }}</button>
+                    <button 
+                        class="btn btn-primary" 
+                        type="button" 
+                        (click)="onSwitchMode()">Switch to {{ isLoginMode ? "Signup" : "Login" }}</button>
+                </div>
             </div>
         </form>
     </div>

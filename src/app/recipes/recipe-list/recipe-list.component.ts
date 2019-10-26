@@ -2,7 +2,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { RecipeService } from '../recipe.service';
 import { Recipe } from '../recipe.model';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Subscription, concat } from 'rxjs';
+import { DataStorageService } from 'src/app/shared/data-storage.service';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-recipe-list',
@@ -15,11 +17,14 @@ export class RecipeListComponent implements OnInit, OnDestroy {
   recipeChangeSub$: Subscription;
   constructor(private recipeService: RecipeService,
     private router: Router, 
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private dataStorageService: DataStorageService) { }
 
   ngOnInit() {
-    this.recipes = this.recipeService.getRecipes();
-    this.recipeChangeSub$ = this.recipeService.observeRecipes().subscribe((recipes: Recipe[]) => {
+    console.log('init');
+    const recipeObs$ = concat(this.dataStorageService.fetchRecipesFromDatabase(), this.recipeService.observeRecipes());
+
+    this.recipeChangeSub$ = recipeObs$.subscribe((recipes: Recipe[]) => {
       console.log('retreving new recipes for list : ', recipes)
       this.recipes = recipes;
     })
