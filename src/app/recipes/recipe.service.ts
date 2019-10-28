@@ -3,7 +3,8 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
 import { Subject } from 'rxjs';
-@Injectable()
+
+@Injectable({providedIn: 'root'})
 export class RecipeService {
     //onSelectRecipe = new EventEmitter<Recipe>();
     private onRecipeChanges = new Subject<Recipe[]>();
