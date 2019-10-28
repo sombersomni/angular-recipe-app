@@ -7,31 +7,24 @@ import { AppRoutingModule } from './routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RecipesModule } from './recipes/recipes.module';
 
+
 import { AppComponent } from './app.component';
-import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { HeaderComponent } from './header/header.component';
-import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
-import { DropdownDirective } from './shared/dropdown.directive';
+import { AuthComponent } from './auth/auth.component';
+//import { HomeComponent } from './home/home.component';
 
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { RecipeService } from './recipes/recipe.service';
-import { AuthComponent } from './auth/auth.component';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
-import { HomeComponent } from './home/home.component';
-import { AlertComponent } from './alert/alert.component';
+import { ShoppingListModule } from './shopping-list/shopping-list.module';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
   declarations: [
     AuthComponent,
     AppComponent,
-    HomeComponent,
-    ShoppingListComponent,
     HeaderComponent,
-    
-    ShoppingEditComponent,
-    AlertComponent,
-    DropdownDirective
   ],
   imports: [
     BrowserModule,
@@ -40,7 +33,9 @@ import { AlertComponent } from './alert/alert.component';
     HttpClientModule,
     HttpModule,
     AppRoutingModule,
-    RecipesModule
+    RecipesModule,
+    ShoppingListModule,
+    SharedModule
   ],
   providers: [
     ShoppingListService, 

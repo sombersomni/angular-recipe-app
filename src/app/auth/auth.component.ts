@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 
 export class AuthComponent {
-    @ViewChild('authForm', {static: true}) authForm: NgForm;
+    @ViewChild('authForm', {static: false}) authForm: NgForm;
     isLoginMode = false;
     isLoading: boolean = false;
     errorMessage: string = "";
