@@ -14,7 +14,7 @@ export class AuthComponent {
     @ViewChild('authForm', {static: true}) authForm: NgForm;
     isLoginMode = false;
     isLoading: boolean = false;
-    errorMessage: string;
+    errorMessage: string = "";
 
     constructor(
         private authService: AuthService,
@@ -24,6 +24,10 @@ export class AuthComponent {
         this.isLoginMode = !this.isLoginMode;
     }
 
+    onHandleError() {
+        this.errorMessage = "";
+    }
+    
     onSubmit() {
         let authObs: Observable<AuthResponseData>;
         this.isLoading = true;

@@ -12,7 +12,7 @@ import { HomeComponent } from './home/home.component';
 
 // { path: "", redirectTo: "/recipes", pathMatch: "full" },
 const appRoutes: Routes = [
-    { path: "", component: HomeComponent, pathMatch: "full" },
+    { path: "", redirectTo: "/recipes", pathMatch: "full" },
     {
         path: "recipes", component: RecipeComponent, canActivate: [AuthGuardService], children: [
             { path: "create", component: RecipeEditComponent},
