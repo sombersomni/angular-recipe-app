@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import env from './auth.api';
+import { environment } from '../../environments/environment';
 import { catchError, tap } from 'rxjs/operators';
 import { throwError,  BehaviorSubject, timer, Observable, Subscription } from 'rxjs';
 import { User } from './user.model';
@@ -25,7 +25,7 @@ export class AuthService {
         private router: Router) { }
 
     signUp(email: string, password: string) {
-        const url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${env['FIREBASE_API_KEY']}`;
+        const url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${environment.firebaseAPIKey}`;
         return this.http.post<AuthResponseData>(url, { email, password, returnSecureToken: true })
             .pipe(
                 catchError(this.handleError),
@@ -36,7 +36,7 @@ export class AuthService {
     }
 
     login(email: string, password: string) {
-        const url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${env['FIREBASE_API_KEY']}`;
+        const url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.firebaseAPIKey}`;
         return this.http.post<AuthResponseData>(url, { email, password, returnSecureToken: true })
             .pipe(
                 catchError(this.handleError),
