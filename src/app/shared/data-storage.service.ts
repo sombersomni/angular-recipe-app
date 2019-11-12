@@ -17,9 +17,7 @@ export class DataStorageService {
     saveRecipesToDatabase() {
         const recipes = this.recipeService.getRecipes();
         this.http.put<Recipe[]>(`${this.firebaseUrl}/recipes.json`, recipes)
-            .subscribe(response => {
-                console.log(response);
-            })
+            .subscribe(response => response);
     }
 
     fetchRecipesFromDatabase() {
@@ -33,7 +31,6 @@ export class DataStorageService {
                 ingredients: recipe.ingredients ? recipe.ingredients : []
             }))),
             tap((recipes: Recipe[]) => {
-                console.log(recipes, 'from server')
                 this.recipeService.setRecipes(recipes);
             }));
 

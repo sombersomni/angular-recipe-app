@@ -29,7 +29,6 @@ export class RecipeEditComponent implements OnInit {
 
   private initForm(id: number) {
     const recipe: Recipe = this.recipeService.getRecipe(id);
-    console.log(recipe);
     this.recipeForm = new FormGroup({
       'name': new FormControl(recipe ? recipe.name : '', Validators.required),
       'desc': new FormControl(recipe ? recipe.desc : '', Validators.required),
@@ -45,7 +44,6 @@ export class RecipeEditComponent implements OnInit {
         )
       ) : new FormArray([])
     })
-    console.log(this.recipeForm)
   }
 
   controls() : AbstractControl[] {
@@ -73,7 +71,6 @@ export class RecipeEditComponent implements OnInit {
   }
 
   onAddIngredient() {
-    console.log("adding ingredients", this.recipeId);
     (this.recipeForm.get("ingredients") as FormArray).push(new FormGroup({
       'name': new FormControl(null,  Validators.required),
       'amount': new FormControl(null,  [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)])

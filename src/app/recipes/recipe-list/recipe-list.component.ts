@@ -21,11 +21,9 @@ export class RecipeListComponent implements OnInit, OnDestroy {
     private dataStorageService: DataStorageService) { }
 
   ngOnInit() {
-    console.log('init');
     const recipeObs$ = concat(this.dataStorageService.fetchRecipesFromDatabase(), this.recipeService.observeRecipes());
 
     this.recipeChangeSub$ = recipeObs$.subscribe((recipes: Recipe[]) => {
-      console.log('retreving new recipes for list : ', recipes)
       this.recipes = recipes;
     })
   }

@@ -22,7 +22,6 @@ export class RecipeService {
     }
 
     getRecipe(id: number): Recipe {
-      console.log('getting recipe of id : ' + id);
       return this.recipes[id];
     }
     

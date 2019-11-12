@@ -73,7 +73,6 @@ export class AuthService {
   }
 
   autoLogout(expirationDuration: number) {
-      console.log("time it expires in : ", expirationDuration * 1000);
       this.expireTimer$ = timer(expirationDuration * 1000).subscribe(() => {
           this.logout();
       })
@@ -90,7 +89,6 @@ export class AuthService {
     }
 
     private handleError(errResponse: HttpErrorResponse) {
-        //console.log(errResponse);
         let errorMessage = "An unknown error occured!";
         if (!errResponse.error || !errResponse.error.error) {
             return throwError(errorMessage);

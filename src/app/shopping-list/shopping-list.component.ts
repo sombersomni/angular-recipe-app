@@ -24,7 +24,5 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
     this.shoppingService.onShopItemEdit.next(index);
   }
 
-  ngOnDestroy() {
-    console.log("Shopping list is unreachable");
-  }
+  ngOnDestroy() {}
 }

@@ -3,14 +3,16 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "NODE_ENV=development ng serve",
-    "build": "ng build",
+    "start": "node server.js",
+    "dev": "NODE_ENV=development ng serve",
+    "build:local": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
+    "@angular/animation": "^4.0.0-beta.8",
     "@angular/animations": "~8.2.11",
     "@angular/common": "~8.2.11",
     "@angular/compiler": "~8.2.11",
@@ -22,6 +24,7 @@
     "@angular/router": "~8.2.11",
     "bootstrap": "^3.4.1",
     "dotenv": "^8.2.0",
+    "express": "^4.17.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"

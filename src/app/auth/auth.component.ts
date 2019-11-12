@@ -40,13 +40,11 @@ export class AuthComponent {
                 authObs = this.authService.signUp(email, password);
             }
             authObs.subscribe((response) => {
-                console.log(response);
                 this.isLoading = false;
                 this.errorMessage = '';
                 this.router.navigate(["/recipes"])
             },
             errorMessage => {   
-                console.log(errorMessage);
                 this.errorMessage = errorMessage;
                 this.isLoading = false;
             })

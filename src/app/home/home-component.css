@@ -1,0 +1,42 @@
+.home-bg {
+    margin-top: -20px;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.home-container {
+    margin: 0;
+    padding: 0;
+}
+
+.home-title {
+    text-align: center;
+    color: white;
+    min-width: 300px;
+    width: 40vw;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.home-title > h1 {
+    font-size: 4em;
+}
+
+.home-title > button {
+    text-transform: uppercase;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 25px;
+    padding: 10px 25px;
+    transform: scale(1);
+}
+
+.home-title > button:hover {
+    transform: scale(0.98);
+}

@@ -2,3 +2,8 @@
     padding-bottom: 0px;
     margin-bottom: 0px;
 }
+
+.brand-name {
+    text-transform: uppercase;
+    font-family: 'Julius Sans One', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
